@@ -1,0 +1,38 @@
+<ion-view hide-nav-bar='true'>
+  <ion-content class="padding">
+    <ul class="list">
+
+    <li class="item item-toggle">
+       Editer le Compte
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="checked">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+  </ul>
+
+  <div class="list">
+
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Name</span>
+    <input type="text"  ng-disabled="!checked" ng-model="account.name">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Devise</span>
+    <input type="text"  ng-disabled="!checked" ng-model="account.devise">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Description</span>
+    <input type="text"  ng-disabled="!checked" ng-model="account.description">
+  </label>
+
+
+</div>
+<div class="flexAround">
+<button class="button button-positive" ng-click="modifyAccount()">
+Mettre à jour le Compte</button>
+</div>
+  </ion-content>
+</ion-view>

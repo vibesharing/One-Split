@@ -1,0 +1,62 @@
+/* Empty. Add your own CSS if you like */
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.balanceRed{
+  color: red;
+}
+
+.balanceGreen{
+  color: Green;
+}
+
+.flexAround{
+  display: flex;
+  justify-content: space-around;
+
+}
+.flexBetween{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.item{
+  border: none;
+  background-color: transparent;
+}
+.inlineBlock{
+  display: inline-block;
+  background-color: grey;
+  border-radius: 100px;
+  line-height: 30px;
+  padding:0px 0px 0px 6px;
+  margin: 2px;
+
+}
+.inlineBlockButton{
+  border-radius: 0px 100px 100px 0px;
+  background-color: black;
+}
+.item.ng-binding{
+  /*display: inline-block;*/
+  vertical-align: middle
+  size: 30px;
+}
+
+.icon{
+  display:table-cell;
+   vertical-align: middle;
+   text-align: center;
+}

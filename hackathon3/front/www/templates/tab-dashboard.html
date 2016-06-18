@@ -1,0 +1,16 @@
+<ion-view hide-nav-bar='true'>
+  <ion-content>
+    <ion-list>
+    <ion-item ng-repeat="account in accounts" class="listCount" ng-click="openAccount(account)">
+      {{account.name}} <br>
+    </ion-item>
+    </ion-list>
+    <hr>
+    <div class="flexAround">
+
+    <button class="button button-positive" ng-click="CreateAccount()"> Create Account    <i class="large material-icons" style="vertical-align: middle;">add</i>
+</button>
+  </div>
+
+  </ion-content>
+</ion-view>

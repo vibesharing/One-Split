@@ -1,0 +1,64 @@
+<ion-view hide-nav-bar='true'>
+  <ion-content>
+    <ion-list>
+      <h1>{{account.name}}</h1>
+      <ion-item ng-repeat="expense in account.expenses">
+        {{expense.name}}
+        paid by
+        {{expense.payer}}
+        {{expense.cost}} {{account.devise}}
+        <button type="button" class="button button-small button-positive" ng-click="goToExpenseDetail(expense)">See more</button>
+      </ion-item>
+    </ion-list>
+    <div class="flexAround">
+
+      <button class="button button-positive" ng-click="openModal()">
+        Ajouter une Dépense</button>
+    </div>
+  </ion-content>
+</ion-view>
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Ajouter une dépense</h1>
+      <button class="button button-assertive" ng-click="closeModal()">BACK</button>
+    </ion-header-bar>
+    <ion-content>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Motif de Dépense</span>
+        <input type="text" placeholder="Motif de Dépense" ng-model="expense.name">
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Coût</span>
+        <input type="number" placeholder="Coût" ng-model="expense.cost">
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Date</span>
+        <input type="date" placeholder="Date" ng-model="expense.date">
+      </label>
+
+
+
+        <ion-list>
+          <ion-radio ng-repeat="participant in account.participants" ng-value ="participant.name" ng-model="expense.payer">{{participant.name}}</ion-radio>
+        </ion-list>
+
+        <ion-list>
+          <ion-checkbox ng-repeat="participant in account.participants track by $index" ng-model="expense.forwhom[participant.name]">{{participant.name}}</ion-checkbox>
+        </ion-list>
+
+
+      <!-- <ion-checkbox ng-repeat="participant in account.participants" ng-model="">{{particpant.name}}</ion-checkbox> -->
+      <div class="flexAround">
+        <button class="button button-positive" ng-click="createExpense()">
+          Ajouter Dépense</button>
+      </div>
+    </ion-list>
+
+  </div>
+</ion-content>
+</ion-modal-view>
+</script>

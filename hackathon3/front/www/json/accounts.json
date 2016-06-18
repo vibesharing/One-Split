@@ -1,0 +1,15 @@
+[
+  {
+  name:"Vacance à 3",
+  description:"3 semaines de vacances dans le sud de la France"
+  participants: [{name: Jhon},{name: Paul},{name: Eric}],
+  expenses: [{name: Coffee, cost: 200, buyer: Jhon}],
+},
+{
+name:"Nöel à 5",
+description:"3 semaines de vacances dans le sud de la France"
+participants: [{name: Jhon},{name: Paul},{name: Eric}],
+expenses: [{name: Coffee, cost: 200, buyer: Jhon}],
+}
+
+]

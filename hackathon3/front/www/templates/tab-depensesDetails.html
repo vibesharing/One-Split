@@ -1,0 +1,23 @@
+<ion-view hide-nav-bar='true'>
+  <ion-header-bar>
+    <h1 class="title">Détails d'une dépense</h1>
+    <button class="button button-assertive" ng-click="goBack()">BACK</button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-item class=" item-text-wrap" ng-repeat="expense in account.expenses | filter:myFilter">
+        <h3>{{expense.payer}}</h3>
+        <h2 ng-repeat="receiver in expense.forwhom">{{receiver}}</h2>
+
+
+          {{expense.name}}           {{expense.cost}}
+
+
+
+
+      <div class="flexAround">
+        <button class="button button-assertive" ng-click="deleteExpense(expense)">
+          Effacer Dépense</button>
+      </div>
+        </ion-item>
+  </ion-content>
+</ion-view>

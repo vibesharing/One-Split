@@ -1,0 +1,46 @@
+<ion-view hide-nav-bar='true'>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Compte</span>
+        <input type="text" placeholder="Compte" ng-model="account.name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Devise</span>
+        <input type="text" placeholder="Devise" ng-model="account.devise">
+      </label>
+      <ion-list>
+        <ion-item ng-repeat="participant in participants" class="inlineBlock">
+          {{participant.name}}
+
+          <button class="button button-small button-assertive inlineBlockButton" ng-click="removeParticipant()">
+            <span style='font-size: 12px;'>X</span>
+          </button>
+
+        </ion-item>
+      </ion-list>
+      <div class="list">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="Participant"  ng-model="participant.name">
+          </label>
+          <button class="button button-small button-balanced"  ng-disabled="participant.name.length < 3"ng-click="addParticipant()">
+            Ajouter un participant
+          </button>
+        </div>
+      </div>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Description</span>
+        <input type="text" placeholder="Description" ng-model="account.description">
+      </label>
+    </div>
+    <div class="flexAround">
+      <button class="button button-positive" ng-click="createAccount()">
+        Ajouter Compte</button>
+      <button class="button button-assertive" ng-click="return()">
+        Abandonner</button>
+    </div>
+
+  </ion-content>
+</ion-view>
