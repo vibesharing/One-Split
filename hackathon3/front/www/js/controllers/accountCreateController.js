@@ -1,8 +1,8 @@
 function accountCreateController($scope, $http, accountCreateService, $ionicHistory,$state, $rootScope ){
 
-$scope.participant ={};
+$scope.participant = { debts: [], equity: [], balance: 0 };
 $scope.participants =[];
-$scope.account ={
+$scope.account = {
   expenses: []
 };
 
@@ -23,7 +23,7 @@ $scope.account ={
   };
   $scope.addParticipant = function(){
     $scope.participants.push($scope.participant);
-    $scope.participant = {};
+    $scope.participant = { debts: [], equity: [], balance: 0 };
 
   };
   $scope.removeParticipant = function(name){

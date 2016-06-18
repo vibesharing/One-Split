@@ -27,7 +27,7 @@
                 </ion-item>
                 <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
                   {{item.name}} <span>{{item.count > 0?   'is owed':'owes'}}</span>{{item.receiver}}
-                  <span ng-class="item.count > 0? 'balanceRed': 'balanceGreen' ">{{item.count > 0?   '+':'-'}}  {{item.count}}</span> 
+                  <span ng-class="item.count > 0? 'balanceRed': 'balanceGreen' ">{{item.count > 0?   '+':'-'}}  {{item.count}}</span>
                 </ion-item>
               </div>
             </ion-list>
