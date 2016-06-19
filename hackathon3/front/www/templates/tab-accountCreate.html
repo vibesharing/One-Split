@@ -10,10 +10,10 @@
         <input type="text" placeholder="Devise" ng-model="account.devise">
       </label>
       <ion-list>
-        <ion-item ng-repeat="participant in participants" class="inlineBlock">
+        <ion-item ng-repeat="participant in participants track by $index" class="inlineBlock">
           {{participant.name}}
 
-          <button class="button button-small button-assertive inlineBlockButton" ng-click="removeParticipant()">
+          <button class="button button-small button-assertive inlineBlockButton" ng-click="removeParticipant($index)">
             <span style='font-size: 12px;'>X</span>
           </button>
 

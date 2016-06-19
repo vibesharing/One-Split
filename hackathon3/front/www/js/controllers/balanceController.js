@@ -1,28 +1,24 @@
 function balanceController($scope, $stateParams, $state, $rootScope, accountCreateService) {
-
-
-
-  $scope.groups = $rootScope.account.participants;
-
-  $scope.group2s = $rootScope.account.participants;
-
-
-
   $scope.toggleGroup = function(group) {
-    group.show = !group.show;
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+    };
+
+
+$scope.toggleGroup2 = function(group2) {
+    if ($scope.isGroup2Shown(group2)) {
+      $scope.shownGroup2 = null;
+    } else {
+      $scope.shownGroup2 = group2;
+    }
   };
-  $scope.isGroupShown = function(group) {
-    return group.show;
+  $scope.isGroup2Shown = function(group2) {
+    return $scope.shownGroup2 === group2;
   };
-
-
-
-  $scope.toggleGroup = function(group2) {
-    group2.show = !group2.show;
-  };
-  $scope.isGroupShown = function(group2) {
-    return group2.show;
-  }
-
-
 }

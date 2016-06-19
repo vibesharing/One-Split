@@ -2,32 +2,34 @@
   <ion-content>
 
 <ion-list>
-        <div ng-repeat="group in groups">
+        <div>
           <ion-item class="item-stable"
                     ng-click="toggleGroup(group)"
                     ng-class="{active: isGroupShown(group)}">
               <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
             &nbsp;
-            {{group.name}}
+            Balance
           </ion-item>
-          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
-            {{item.name}} <span>{{item.count > 0?   'is owed':'owes'}}</span>
-              {{item.count}}
+          <ion-item class="item-accordion" ng-repeat="participant in account.participants" ng-show="isGroupShown(group)">
+            {{participant.name}} <span ng-show="participant.balance > 0">  is owed {{participant.balance}}  {{account.devise}}</span>
+            <ul ng-show="participant.balance < 0">
+              <li ng-repeat="debt in participant.debts">owes  {{debt.amount}} to {{debt.personToPayBack}} !</li>
+            </ul>
           </ion-item>
         </div>
       </ion-list>
       <ion-list>
-              <div ng-repeat="group in group2s">
+              <div>
                 <ion-item class="item-stable"
-                          ng-click="toggleGroup(group)"
-                          ng-class="{active: isGroupShown(group)}">
-                    <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+                          ng-click="toggleGroup2(group2)"
+                          ng-class="{active: isGroup2Shown(group2)}">
+                    <i class="icon" ng-class="isGroup2Shown(group2) ? 'ion-minus' : 'ion-plus'"></i>
                   &nbsp;
-                  {{group.name}}
+                  Qui doit de l'argent à qui ?
                 </ion-item>
-                <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
-                  {{item.name}} <span>{{item.count > 0?   'is owed':'owes'}}</span>{{item.receiver}}
-                  <span ng-class="item.count > 0? 'balanceRed': 'balanceGreen' ">{{item.count > 0?   '+':'-'}}  {{item.count}}</span>
+                <ion-item class="item-accordion" ng-repeat="participant in account.participants" ng-show="isGroup2Shown(group2)">
+                  {{participant.name}} <span>{{participant.balance > 0?   'is owed':'owes'}}</span>
+                  <span ng-class="participant.balance > 0? 'balanceGreen': 'balanceRed' "> {{participant.balance}} {{account.devise}}</span>
                 </ion-item>
               </div>
             </ion-list>

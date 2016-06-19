@@ -26,8 +26,8 @@ $scope.account = {
     $scope.participant = { debts: [], equity: [], balance: 0 };
 
   };
-  $scope.removeParticipant = function(name){
-    $scope.participants.splice(name,1);
+  $scope.removeParticipant = function(index){
+    $scope.participants.splice(index,1);
     console.log($scope.participants);
 
   };
