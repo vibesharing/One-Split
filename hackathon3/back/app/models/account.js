@@ -5,9 +5,14 @@ var accountSchema = new mongoose.Schema({
   name: String,
   description: String,
 	devise: String,
-	participants: Array,
-	expenses: Array,
-  // isAdmin : { type: Boolean, default: false}
+	participants: [{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'user'
+	}],
+	expenses:[{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'expense'
+	}],
 });
 
 var Account = {
@@ -16,9 +21,13 @@ var Account = {
 
 
 		findAll: function(req, res) {
-		Account.model.find(function (err, data) {
-			res.send(data);
-		});
+		Account.model.find()
+			.populate("expenses")
+			.populate("participants")
+			.exec(function (err, accounts) {
+		res.json(accounts);
+	});
+
 	},
 
 	findById: function(req, res) {
@@ -33,9 +42,6 @@ var Account = {
             if (!err)
                 res.json(account);
             else{
-                if (err.code === 11000 || err.code === 11001)
-                    err.message = "Accountname " + req.body.name  + " already exist";
-
                 res.status(500).send(err.message);
             }
 	    });
@@ -55,9 +61,31 @@ var Account = {
             if (err)
                 res.status(500).send(err.message);
 			res.sendStatus(200);
-		})
-	}
+		});
+	},
+
+
+	addParticipants: function(req, res){
+		console.log('arrived');
+		Account.model.findById(req.params.id, function(err, account){
+			account.participants.push(req.body.id_participant);
+			account.save();
+
+			Account.findAll(req, res);
+
+		});
+	},
+
+addExpenses: function(req, res){
+	User.model.findById(req.params.id, function(err, account){
+		account.expenses.push(req.body.id_expenses);
+		account.save();
+
+		User.findAll(req, res);
+
+	});
 }
+};
 
 
 module.exports = Account;

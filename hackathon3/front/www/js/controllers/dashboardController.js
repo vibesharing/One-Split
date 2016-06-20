@@ -5,6 +5,7 @@ $scope.openAccount = function(account){
   $rootScope.account = account;
   $rootScope.hideTabs = '';
   $state.go('tab.depenses');
+
 };
 
   function load(){
@@ -15,7 +16,14 @@ $scope.openAccount = function(account){
   load();
 
   $scope.CreateAccount = function() {
-    $state.go("tab.accountCreate");
+    var newAccount = {};
+    console.log("accountCreated");
+    accountCreateService.create(newAccount).then(function(res){
+      $rootScope.account = res.data;
+      console.log("accountCreated");
+        $state.go("tab.accountCreate");
+    });
+
 
   };
 }

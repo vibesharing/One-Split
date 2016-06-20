@@ -13,6 +13,9 @@ module.exports 	= function(app) {
 
 	app.put('/api/accounts/:id', Account.update);
 
+	app.put('/api/accounts/participants/:id', Account.addParticipants);
+	app.put('/api/accounts/expenses/:id', Account.addExpenses);
+
 	app.delete('/api/accounts/:id', Account.delete);
 
 };

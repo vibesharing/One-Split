@@ -12,4 +12,5 @@ angular.module('starter.services', [])
 })
 .service('accountCreateService', accountCreateService)
 .service('depensesService', depensesService)
+.service('participantsService', participantsService)
 ;

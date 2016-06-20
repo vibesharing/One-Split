@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     //   host : 'localhost',
         // host : '192.168.1.38',
       // host : '192.168.3.20',
-        host : '192.168.3.196',
+        host : 'localhost',
         port: 8000
     };
 });

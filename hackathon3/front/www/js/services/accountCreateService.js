@@ -9,6 +9,12 @@ function accountCreateService($http, global){
   update: function(id, data) {
     return $http.put('http://' + global.host + ':' + global.port + '/api/accounts/' + id, data);
   },
+  addParticipants: function(id, data) {
+    return $http.put('http://' + global.host + ':' + global.port + '/api/accounts/participants/' + id, data);
+  },
+  addExpenses: function(id, data) {
+    return $http.put('http://' + global.host + ':' + global.port + '/api/accounts/expenses/' + id, data);
+  },
   create: function(data) {
     return $http.post('http://' + global.host + ':' + global.port + '/api/accounts/', data);
   },

@@ -4,12 +4,11 @@ var mongoose = require('mongoose');
 var userSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   password: String,
-  isAdmin : { type: Boolean, default: false}
 });
 
 var User = {
-    model: mongoose.model('User', userSchema),
-    
+    model: mongoose.model('user', userSchema),
+
     connect: function(req, res) {
         User.model.findOne(req.body, {password: 0}, function(err, user){
             if(err || !user)
@@ -27,7 +26,7 @@ var User = {
             }
         });
 	},
-    
+
     findAll: function(req, res) {
 		User.model.find({}, {password: 0}, function (err, users) {
 			res.json(users);
@@ -41,14 +40,14 @@ var User = {
 	},
 
 	create: function(req, res) {
-		User.model.create(req.body, 
+		User.model.create(req.body,
         function(err, user) {
             if (!err)
                 res.json(user);
             else{
                 if (err.code === 11000 || err.code === 11001)
                     err.message = "Username " + req.body.name  + " already exist";
-                
+
                 res.status(500).send(err.message);
             }
 	    });
