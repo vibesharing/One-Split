@@ -11,9 +11,11 @@ $scope.account = {
     console.log($scope.account);
     $rootScope.account = $scope.account;
 
-    accountCreateService.create($scope.account).then(function(){
+    accountCreateService.create($scope.account).then(function(res){
       console.log('done');
       $scope.account ={};
+      console.log(res.data);
+      $rootScope.account = res.data;
       $scope.participants =[];
       $rootScope.hideTabs = '';
       $state.go("tab.depenses");

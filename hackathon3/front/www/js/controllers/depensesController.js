@@ -122,6 +122,7 @@ function depensesController($scope, $stateParams, $state, $rootScope, $ionicModa
 
   //================================================================================depensesDetails
 
+  console.log($stateParams.name);
   $scope.myFilter = $stateParams.name;
 
   $scope.deleteExpense = function(expense) {

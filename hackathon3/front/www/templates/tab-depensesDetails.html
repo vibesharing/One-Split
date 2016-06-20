@@ -5,15 +5,29 @@
   </ion-header-bar>
   <ion-content>
     <ion-item class=" item-text-wrap" ng-repeat="expense in account.expenses | filter:myFilter">
-        <h3>{{expense.payer}}</h3>
-        <h2 ng-repeat="receiver in expense.forwhom">{{receiver}}</h2>
+      <div class="row">
+        <div class="col">
+          <h2>Payer</h2>
+          <hr>
+          <br>
+          <h3>{{expense.payer}}</h3>
+        </div>
+        <div class="col">
+          <h2>ForWhom</h2>
+          <hr>
+          <br>
+          <h2 ng-repeat="receiver in expense.forwhom">{{receiver}}</h2>
 
+        </div>
+        <div class="col">
+          <h2>Cost /Person</h2>
+          <hr>
+          <br>
+          <h2 ng-repeat="receiver in expense.forwhom">{{expense.cost/expense.forwhom.length}} {{account.devise}}</h2>
 
-          {{expense.name}}           {{expense.cost}}
-
-
-
-
+        </div>
+        </div>
+        <hr>
       <div class="flexAround">
         <button class="button button-assertive" ng-click="deleteExpense(expense)">
           Effacer Dépense</button>

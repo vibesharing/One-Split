@@ -1,15 +1,21 @@
 <ion-view hide-nav-bar='true'>
-  <ion-content>
-    <ion-list>
+  <div class="bar bar-header bar-energized">
+  <h1 class="title">Expenses List</h1>
+</div>
+  <ion-content class="has-header">
+
       <h1>{{account.name}}</h1>
-      <ion-item ng-repeat="expense in account.expenses">
-        {{expense.name}}
-        paid by
-        {{expense.payer}}
-        {{expense.cost}} {{account.devise}}
-        <button type="button" class="button button-small button-positive" ng-click="goToExpenseDetail(expense)">See more</button>
+      <div class="card ">
+      <ion-item ng-repeat="expense in account.expenses" >
+        <div class="flexBetween listExpense">
+            {{expense.name}} paid by {{expense.payer}} {{expense.cost}} {{account.devise}}
+          <button type="button" class="button button-small button-positive" ng-click="goToExpenseDetail(expense)">See more</button>
+
+          </div>
+
       </ion-item>
-    </ion-list>
+
+    </div>
     <div class="flexAround">
 
       <button class="button button-positive" ng-click="openModal()">
@@ -40,16 +46,24 @@
         <input type="date" placeholder="Date" ng-model="expense.date">
       </label>
 
-
-
-        <ion-list>
-          <ion-radio ng-repeat="participant in account.participants" ng-value ="participant.name" ng-model="expense.payer">{{participant.name}}</ion-radio>
-        </ion-list>
-
-        <ion-list>
-          <ion-checkbox ng-repeat="participant in account.participants track by $index" ng-model="expense.forwhom[participant.name]">{{participant.name}}</ion-checkbox>
-        </ion-list>
-
+      <div class="row">
+        <div class="col">
+          <ion-list class='list-radio'>
+            <label class="item item-input">
+              <span class="input-label">Payer</span>
+            </label>
+            <ion-radio class='ion-radio' ng-repeat="participant in account.participants" ng-value="participant.name" ng-model="expense.payer">{{participant.name}}</ion-radio>
+          </ion-list>
+        </div>
+        <div class="col">
+          <ion-list>
+            <label class="item item-input">
+              <span class="input-label">For whom</span>
+            </label>
+            <ion-checkbox ng-repeat="participant in account.participants track by $index" ng-model="expense.forwhom[participant.name]">{{participant.name}}</ion-checkbox>
+          </ion-list>
+        </div>
+      </div>
 
       <!-- <ion-checkbox ng-repeat="participant in account.participants" ng-model="">{{particpant.name}}</ion-checkbox> -->
       <div class="flexAround">

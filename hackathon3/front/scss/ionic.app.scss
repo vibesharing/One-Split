@@ -9,21 +9,41 @@ $stable:                          #f8f8f8 !default;
 $positive:                        #387ef5 !default;
 $calm:                            #11c1f3 !default;
 $balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
+$energized:                       #2F6A7F !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+$base-background-color: #666;
+$modal-bg-color: #666;
+$light: #fff !default;
+$energized: #2F6A7F !default;
+$positive: #ABE9FF !default;
+$balanced: #56747F !default;
+label {
+  .input-label {
+    font-weight: bold;
+    color: $light;
+    border-bottom: 1px solid $light;
+  }
+}
+.item-content{
+  background-color: transparent !important;
 
-$base-background-color:            #666;
-$modal-bg-color:                   #666;
+}
+.listExpense{
+  vertical-align: middle;
+}
+input[type="text"]:disabled {
+    background: transparent;
+text-decoration: line-through;
+}
 
-
-
-
+.button:hover{
+border: 2px solid white !important;
+}
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
